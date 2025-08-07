@@ -42,3 +42,35 @@ print(Hero._power)            # Protected (not recommended but possible)
 print(Hero.get_city())        # Access private attribute via getter
 Hero.set_city("Gotham")       # Modify private attribute via setter
 print(Hero.get_city())
+
+#ACTIVITY 2
+
+class Animal:
+    def __init__(self,name, species,movement):
+        self.name = name
+        self.species = species
+        self.movement = movement
+
+    def move(self):
+        return f"{self.name} the {self.species} moves by {self.movement}."
+    
+class Dog(Animal):
+    def __init__(self, name, breed):
+        super().__init__(name, "Dog", "running")
+        self.breed = breed
+
+    def move(self):
+        return f"{self.name} the {self.breed} dog runs quickly."
+    
+class Fish(Animal):
+    def __init__(self, name):
+        super().__init__(name, "Fish", "swimming")
+    
+    def move(self):
+        return f"{self.name} the fish swims gracefully."
+    
+Dog1 = Dog("Buddy", "Golden Retriever")
+Fish1 = Fish("Nemo")
+
+print(Dog1.move())  # Buddy the Golden Retriever dog runs quickly.
+print(Fish1.move())  # Nemo the fish swims gracefully.
